@@ -28,4 +28,4 @@ while(i<n//2):
         break
     i+=1
 else:
-    print("Prime")
+    print("Prime") 
