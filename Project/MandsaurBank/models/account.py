@@ -14,3 +14,11 @@ class Account:
     def show(self):
         print(f"\nName : {self.name} ({self.act_no})")
         print(f"Mobile : {self.mobile}")
+    def toDict(self):
+        return{
+        "act_no":self.act_no,
+        "name":self.name,
+        "mobile":self.mobile,
+        "balance":self.balance,
+        "pin":self.pin         
+        }

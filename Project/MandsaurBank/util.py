@@ -1,3 +1,7 @@
+from models.account import Account
+import FileOperation as fp
+accounts=fp.getAllAccounts()
+print(accounts)
 def printMenu():
     print("\n***Mandsaur Bank Options \n")
     print("1.Create Account")
@@ -10,10 +14,15 @@ def printMenu():
 def checkAccount():
     actNo=input("\nAccount Number : ")
     pin=input("Pin Number : ")
-    return actNo
-
+    for act in accounts:
+        if actNo == act['act_no'] and pin == act['pin']:
+            return act
 def create():
-    pass
+    act=Account()
+    act.input()
+    accounts.insert(0,act.toDict())
+    fp.saveAccount(accounts)
+    
 def checkBalance():
     actNo=checkAccount()
     if actNo is not None:
